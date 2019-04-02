@@ -1,0 +1,47 @@
+
+  
+  <form  [formGroup]="EmployeeForm" (ngSubmit)="CreateEmployee()"  novalidate>
+      
+    <div>
+        <label>Employee Name</label>
+        <input type="text" class ="form-control" formControlName="EmpName" >
+      </div>
+      <br/>
+      <div>
+          <label>Age</label>
+          <input type="number" class ="form-control" formControlName="EmpAge" >
+        </div>
+        <br/>
+        <div>
+            <label>Salary</label>
+            <input type="number" class ="form-control" formControlName="Salary">
+          </div>
+          <br/>
+          <button type="submit">Submit</button>
+          <br/>
+</form>
+
+  <br/>
+  <br/>
+
+  <table>
+    <tr>
+      <th>EmpId</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Salary</th>
+      <th>Action</th>
+    </tr>
+    
+        <tr *ngFor="let employees of allEmployees | async">
+            <td>{{employees.EmpId}}</td>
+            <td>{{employees.EmpName}}</td>
+            <td>{{employees.EmpAge}}</td>
+            <td>{{employees.Salary}}</td>
+            <td> <button value="edit" (click)="LoadEmployee(employees.EmpId)">Edit</button> | <button value="delete" (click)="Delete(employees.EmpId)" >Delete</button> </td>
+            
+          </tr>
+
+        
+  </table>
+

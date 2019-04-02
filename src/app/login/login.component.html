@@ -1,0 +1,19 @@
+
+  <form [formGroup]="LoginForm"  (ngSubmit)="login()">
+
+    <label>Email Id</label>
+    <input type="email" class ="form-control" formControlName="Email" >
+   <p *ngIf="LoginForm.controls.Email.errors && LoginForm.controls.Email.errors.required && LoginForm.controls.Email.touched">
+*required field</p>
+<p *ngIf="LoginForm.controls.Email.errors && LoginForm.controls.Email.errors.pattern">Enter a correct mail id</p>
+    <br/>
+    <br/>
+  <label>Password</label>
+  <input type="password" class ="form-control" formControlName="Password" >
+  <p *ngIf="LoginForm.controls.Password.errors && LoginForm.controls.Password.errors.required && LoginForm.controls.Password.touched">
+    *required field</p>
+    <br/>
+    <br/>
+    <button type="submit">Login</button>
+    <br/>
+</form>
